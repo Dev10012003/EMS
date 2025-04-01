@@ -1,0 +1,45 @@
+import {
+  IsString,
+  IsEmail,
+  IsDate,
+  IsOptional,
+  IsNumber,
+} from "class-validator";
+
+export class UpdateEmployeeRequestDTO {
+  @IsString()
+  name!: string;
+
+  @IsEmail()
+  email!: string;
+
+  @IsString()
+  employeeId!: string;
+
+  @IsDate()
+  dob!: Date;
+
+  @IsString()
+  gender!: string;
+
+  @IsString()
+  maritalStatus!: string;
+
+  @IsString()
+  designation!: string;
+
+  @IsString()
+  department!: string;
+
+  @IsNumber()
+  salary!: number;
+
+  @IsString()
+  password!: string;
+
+  @IsString()
+  role!: string;
+
+  @IsOptional()
+  profileImage?: string;
+}
