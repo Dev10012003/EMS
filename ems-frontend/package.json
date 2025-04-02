@@ -20,7 +20,7 @@
     "axios": "^1.8.4",
     "ems": "file:..",
     "formik": "^2.4.6",
-    "postcss": "^8.5.2",
+    "postcss": "^8.5.3",
     "react": "^19.0.0",
     "react-data-table-component": "^7.6.2",
     "react-dom": "^19.0.0",
