@@ -16,8 +16,8 @@ import { fileURLToPath } from "url";
 
 dotenv.config();
 
-// const __filename = fileURLToPath(import.meta.url);
-// const __dirname = path.dirname(__filename);
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const app = express();
 
@@ -45,10 +45,11 @@ const PORT = process.env.PORT || 3000;
 // }
 
 if (process.env.NODE_ENV === "production") {
-  app.use(express.static(path.join(__dirname, "../ems-frontend/build")));
+  const frontendPath = path.join(__dirname, "../ems-frontend/build");
+  app.use(express.static(frontendPath));
 
   app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "../ems-frontend/build", "index.html"));
+    res.sendFile(path.join(frontendPath, "index.html"));
   });
 }
 
