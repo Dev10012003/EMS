@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "build": "npm install --f --prefix ems-backend && npm install --f --prefix ems-frontend && npm run build --prefix ems-frontend",
+    "build": "npm install --f --prefix ems-backend && npm install --f --prefix ems-frontend && npm run build --prefix ems-backend && npm run build --prefix ems-frontend",
     "start": "npm run start --prefix ems-backend"
   },
   "repository": {
