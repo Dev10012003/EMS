@@ -1,0 +1,21 @@
+{
+  "name": "ems",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build": "npm install --prefix ems-backend && npm install --prefix ems-frontend && npm run build --prefix ems-frontend",
+    "start": "npm run start --prefix ems-backend"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dev10012003/EMS.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Dev10012003/EMS/issues"
+  },
+  "homepage": "https://github.com/Dev10012003/EMS#readme",
+  "description": ""
+}

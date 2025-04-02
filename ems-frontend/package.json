@@ -18,6 +18,7 @@
     "@types/react-dom": "^19.0.4",
     "autoprefixer": "^10.4.20",
     "axios": "^1.8.4",
+    "ems": "file:..",
     "formik": "^2.4.6",
     "postcss": "^8.5.2",
     "react": "^19.0.0",

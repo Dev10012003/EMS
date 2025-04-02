@@ -1,7 +1,11 @@
 export const getToken = () =>
   localStorage.getItem("token") || sessionStorage.getItem("token");
 
-export const API_BASE_URL = "http://localhost:8000/api";
+export const API_BASE_URL =
+  process.env.NODE_ENV === "development" ? "http://localhost:8000/api" : "/api";
+
+export const MEDIA_BASE_URL =
+  process.env.NODE_ENV === "development" ? "http://localhost:8000" : "";
 
 export const holidayData = [
   { label: "New Year", date: "01-01-2025" },

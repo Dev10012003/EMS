@@ -7,6 +7,7 @@ import {
 } from "../../services/apiSlice";
 import { handleAxiosError } from "../../utils/ErrorHandler";
 import Loader from "../Common/Loader";
+import { MEDIA_BASE_URL } from "../../utils/Constant";
 
 function Detail() {
   const { id } = useParams();
@@ -54,7 +55,7 @@ function Detail() {
                   <img
                     src={
                       leave.employeeId.userId.profileImage
-                        ? `http://localhost:8000/${leave.employeeId.userId.profileImage}`
+                        ? `${MEDIA_BASE_URL}/${leave.employeeId.userId.profileImage}`
                         : DefaultProfile
                     }
                     className="w-auto h-96 object-cover border-2"

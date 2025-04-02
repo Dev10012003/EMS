@@ -6,6 +6,7 @@ import { IEmployee } from "../../interfaces/Employee";
 import { useGetEmployeeByIdQuery } from "../../services/apiSlice";
 import { handleAxiosError } from "../../utils/ErrorHandler";
 import Loader from "../Common/Loader";
+import { MEDIA_BASE_URL } from "../../utils/Constant";
 
 function View() {
   const authContext = useAuth();
@@ -56,7 +57,7 @@ function View() {
                   <img
                     src={
                       employee.userId.profileImage
-                        ? `http://localhost:8000/${employee.userId.profileImage}`
+                        ? `${MEDIA_BASE_URL}/${employee.userId.profileImage}`
                         : DefaultProfile
                     }
                     className="w-auto h-80 object-cover border-2"

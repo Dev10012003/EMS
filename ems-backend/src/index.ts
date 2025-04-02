@@ -11,6 +11,7 @@ import leaveRouter from "./routes/leave.js";
 import salaryRouter from "./routes/salary.js";
 import dashboardRouter from "./routes/dashboard.js";
 import "./utils/salaryScheduler.js";
+import path from "path";
 
 dotenv.config();
 
@@ -27,12 +28,15 @@ app.use("/api/leave", leaveRouter);
 app.use("/api/salary", salaryRouter);
 app.use("/api/dashboard", dashboardRouter);
 
-app.get("/", (req, res) => {
-  res.send("Hello from Express + TypeScript on Vercel!");
-});
-
 const PORT = process.env.PORT || 3000;
+const __dirname = path.resolve();
 
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname, "/ems-frontend/build")));
+  app.get("*", (req, res) =>
+    res.sendFile(path.resolve(__dirname, "ems-frontend", "build", "index.html"))
+  );
+}
 const startServer = async () => {
   try {
     await connectToDatabase();
