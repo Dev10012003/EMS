@@ -29,14 +29,17 @@ app.use("/api/salary", salaryRouter);
 app.use("/api/dashboard", dashboardRouter);
 
 const PORT = process.env.PORT || 3000;
-const __dirname = path.resolve();
+
+const root = path.resolve(__dirname, "..");
 
 if (process.env.NODE_ENV === "production") {
-  app.use(express.static(path.join(__dirname, "/ems-frontend/build")));
-  app.get("*", (req, res) =>
-    res.sendFile(path.resolve(__dirname, "ems-frontend", "build", "index.html"))
-  );
+  app.use(express.static(path.join(root, "ems-frontend/build")));
+
+  app.get("*", (req, res) => {
+    res.sendFile(path.join(root, "ems-frontend", "build", "index.html"));
+  });
 }
+
 const startServer = async () => {
   try {
     await connectToDatabase();
