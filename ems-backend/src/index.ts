@@ -27,6 +27,10 @@ app.use("/api/leave", leaveRouter);
 app.use("/api/salary", salaryRouter);
 app.use("/api/dashboard", dashboardRouter);
 
+app.get("/", (req, res) => {
+  res.send("Hello from Express + TypeScript on Vercel!");
+});
+
 const PORT = process.env.PORT || 3000;
 
 const startServer = async () => {
