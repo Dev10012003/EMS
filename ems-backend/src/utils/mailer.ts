@@ -18,9 +18,15 @@ const transporter = nodemailer.createTransport({
 
 export const sendMail = async (to: string, subject: string, text: string) => {
   await transporter.sendMail({
-    from: `"EMS" <${process.env.SMTP_USER}>`, // Proper format
+    from: `"EMS" <${process.env.SMTP_USER}>`,
     to,
     subject,
     text,
+    headers: process.env.SMTP_USER
+      ? {
+          "Reply-To": process.env.SMTP_USER,
+          "Return-Path": process.env.SMTP_USER,
+        }
+      : undefined,
   });
 };
