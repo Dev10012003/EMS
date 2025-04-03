@@ -18,7 +18,7 @@ const transporter = nodemailer.createTransport({
 
 export const sendMail = async (to: string, subject: string, text: string) => {
   await transporter.sendMail({
-    from: `"EMS<${process.env.SMTP_USER}>`,
+    from: `"EMS" <${process.env.SMTP_USER}>`, // Proper format
     to,
     subject,
     text,
