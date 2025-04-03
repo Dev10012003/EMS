@@ -16,6 +16,7 @@ export class EmployeeRepository {
         match: { role: "employee" },
       })
       .populate("department")
+      .sort({ createdAt: 1 })
       .exec();
   }
 

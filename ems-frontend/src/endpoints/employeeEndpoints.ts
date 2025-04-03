@@ -15,7 +15,7 @@ export const employeeEndpoints = (builder: EndpointBuilder<any, any, any>) => ({
         ? response.employees.map((emp) => ({
             _id: emp._id,
             name: emp.userId.name,
-            dob: new Date(emp.dob).toDateString(),
+            dob: new Date(emp.dob),
             profileImage: emp.userId.profileImage
               ? `${MEDIA_BASE_URL}/${emp.userId.profileImage}`
               : "/assets/images/profile.jpg",

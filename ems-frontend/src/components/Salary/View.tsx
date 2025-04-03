@@ -10,6 +10,7 @@ import {
   useGetEmployeeSalariesQuery,
   usePaySalaryMutation,
 } from "../../services/apiSlice";
+import Loader from "../Common/Loader";
 
 function View() {
   const navigate = useNavigate();
@@ -22,7 +23,11 @@ function View() {
   const [orderBy, setOrderBy] = useState<keyof IEmployeeSalary>();
   const [orderDirection, setOrderDirection] = useState<"asc" | "desc">("asc");
 
-  const { data, refetch } = useGetEmployeeSalariesQuery({
+  const {
+    data,
+    refetch,
+    isLoading: isFetchingSalaries,
+  } = useGetEmployeeSalariesQuery({
     id: id || "",
     role: role || "",
     currentPage,
@@ -31,15 +36,18 @@ function View() {
     orderDirection,
   });
 
-  const [paySalary] = usePaySalaryMutation();
+  const [paySalary, { isLoading: isPayingSalary }] = usePaySalaryMutation();
 
   const [salaryIdToDownload, setSalaryIdToDownload] = useState<string | null>(
     null
   );
 
-  const { data: downloadData } = useDownloadSalaryQuery(salaryIdToDownload!, {
-    skip: !salaryIdToDownload,
-  });
+  const { data: downloadData, isLoading: isDownloadingSalary } =
+    useDownloadSalaryQuery(salaryIdToDownload!, {
+      skip: !salaryIdToDownload,
+    });
+
+  const isLoading = isFetchingSalaries || isPayingSalary || isDownloadingSalary;
 
   useEffect(() => {
     if (downloadData && salaryIdToDownload) {
@@ -89,6 +97,8 @@ function View() {
     setOrderDirection(isAsc ? "desc" : "asc");
     setOrderBy(property);
   };
+
+  if (isLoading) return <Loader />;
 
   return (
     <div className="p-5">

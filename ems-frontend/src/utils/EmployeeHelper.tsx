@@ -136,8 +136,10 @@ export const columns: TableColumn<IEmployeeTableData>[] = [
   },
   {
     name: "DOB",
-    selector: (row) => row.dob,
+    selector: (row) => new Date(row.dob).toLocaleDateString("en-GB"),
     sortable: true,
+    sortFunction: (a, b) =>
+      new Date(a.dob).getTime() - new Date(b.dob).getTime(),
     width: "250px",
     style: { fontSize: "16px" },
   },

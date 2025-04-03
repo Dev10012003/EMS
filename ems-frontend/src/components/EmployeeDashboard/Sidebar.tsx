@@ -75,8 +75,11 @@ function Sidebar({ isOpen, onClose }: ISidebarProps) {
         <div className="relative">
           <div
             className="flex items-center space-x-4 py-2.5 px-4 rounded cursor-pointer border-2 border-transparent
-             hover:border-teal-300"
-            onClick={() => setIsSalaryOpen(!isSalaryOpen)}
+   hover:border-teal-300"
+            onClick={(e) => {
+              e.stopPropagation();
+              setIsSalaryOpen(!isSalaryOpen);
+            }}
           >
             <FaMoneyBillWave />
             <span>Salary</span>
@@ -93,7 +96,7 @@ function Sidebar({ isOpen, onClose }: ISidebarProps) {
                 to={`/employee-dashboard/salary/history/${authContext?.user?._id}`}
                 className={({ isActive }) =>
                   `${
-                    isActive ? "bg-teal-500" : ""
+                    isActive ? "bg-teal-500 mt-2" : ""
                   } flex items-center space-x-4 py-2.5 px-4 rounded border-2 border-transparent
              hover:border-teal-300`
                 }

@@ -37,7 +37,7 @@ export interface IEmployeeTableData {
   _id: string;
   name: string;
   dep_name: string;
-  dob: string;
+  dob: Date;
   profileImage: string;
   action: React.ReactNode;
 }
