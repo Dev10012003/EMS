@@ -43,7 +43,7 @@ export class AuthService {
     const resetToken = jwt.sign({ id: user._id }, JWT_KEY, {
       expiresIn: "15m",
     });
-    const resetLink = `http://localhost:3000/reset-password/${resetToken}`;
+    const resetLink = `https://ems-mcs2.onrender.com/reset-password/${resetToken}`;
 
     await sendMail(email, "Password Reset Request", `Reset link: ${resetLink}`);
   }
