@@ -60,6 +60,7 @@ function View() {
                         ? `${MEDIA_BASE_URL}/${employee.userId.profileImage}`
                         : DefaultProfile
                     }
+                    alt="employee_img"
                     className="w-auto h-80 object-cover border-2"
                   />
                 </div>

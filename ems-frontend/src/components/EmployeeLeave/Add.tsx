@@ -7,6 +7,7 @@ import { useAuth } from "../../context/authContext";
 import { ILeaveFormValues } from "../../interfaces/Leave";
 import { useAddLeaveMutation } from "../../services/apiSlice";
 import { handleAxiosError } from "../../utils/ErrorHandler";
+import Loader from "../Common/Loader";
 
 function Add() {
   const authContext = useAuth();
@@ -57,6 +58,10 @@ function Add() {
       }
     },
   });
+
+  if (isLoading) {
+    return <Loader />;
+  }
 
   return (
     <div className="w-full">

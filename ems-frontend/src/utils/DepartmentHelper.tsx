@@ -1,14 +1,12 @@
-import { TableColumn } from "react-data-table-component";
 import React from "react";
-import { useNavigate } from "react-router-dom";
-import axios from "axios";
-import { IDepartmentTable } from "../interfaces/Department";
-import { API_BASE_URL } from "./Constant";
-import { IApiResponse, IButtonWithDeleteProps } from "../interfaces/Common";
-import { handleAxiosError } from "./ErrorHandler";
-import { toast } from "react-toastify";
+import { TableColumn } from "react-data-table-component";
 import { FaEdit, FaTrash } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import { IButtonWithDeleteProps } from "../interfaces/Common";
+import { IDepartmentTable } from "../interfaces/Department";
 import { useDeleteDepartmentMutation } from "../services/apiSlice";
+import { handleAxiosError } from "./ErrorHandler";
 
 export const columns: TableColumn<IDepartmentTable>[] = [
   {

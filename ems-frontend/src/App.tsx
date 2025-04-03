@@ -3,7 +3,6 @@ import AdminSummary from "./components/AdminDashboard/AdminSummary";
 import LeaveDetail from "./components/AdminLeave/Detail";
 import AdminLeaveList from "./components/AdminLeave/List";
 import LeaveList from "./components/Common/LeaveList";
-import Loader from "./components/Common/Loader";
 import Setting from "./components/Common/Setting";
 import AddDepartment from "./components/Department/AddDepartment";
 import DepartmentList from "./components/Department/DepartmentList";

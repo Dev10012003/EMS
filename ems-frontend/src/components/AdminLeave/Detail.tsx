@@ -58,6 +58,7 @@ function Detail() {
                         ? `${MEDIA_BASE_URL}/${leave.employeeId.userId.profileImage}`
                         : DefaultProfile
                     }
+                    alt="employee_img"
                     className="w-auto h-96 object-cover border-2"
                   />
                 </div>
